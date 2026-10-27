@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Desk | Message Register</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="identity"><span class="identity-mark">CD</span><div><strong>Campus Desk</strong><small>STUDENT SUPPORT · MESSAGE REGISTER</small></div></div>
+    <div class="server-state"><span class="state-dot"></span> SERVER ONLINE <span class="divider">/</span> NODE.JS CORE HTTP</div>
+  </header>
+
+  <main class="page">
+    <section class="page-heading">
+      <div>
+        <p class="overline">WEB TECHNOLOGY LAB / PRACTICAL 04</p>
+        <h1>Contact <span>register</span></h1>
+        <p class="intro">Submit a support message. The server checks every field before it is recorded.</p>
+      </div>
+      <div class="record-stamp"><small>FORM ID</small><strong>CD-04</strong><small>SERVER VALIDATION</small></div>
+    </section>
+
+    <div class="workspace">
+      <section class="panel form-panel">
+        <div class="panel-heading"><div><span class="number">01</span><div><h2>New message</h2><p>Fields marked * are required.</p></div></div><span class="tag">POST /api/contact</span></div>
+        <form id="contact-form" novalidate>
+          <div class="fields">
+            <div class="field">
+              <label for="name">Full name <b>*</b></label>
+              <input id="name" name="name" placeholder="Your full name" autocomplete="name">
+              <small class="field-error" data-error="name"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email address <b>*</b></label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email">
+              <small class="field-error" data-error="email"></small>
+            </div>
+            <div class="field full">
+              <label for="topic">Message category <b>*</b></label>
+              <select id="topic" name="topic">
+                <option value="">Select category</option>
+                <option>General question</option>
+                <option>Technical issue</option>
+                <option>Course enquiry</option>
+                <option>Feedback</option>
+              </select>
+              <small class="field-error" data-error="topic"></small>
+            </div>
+            <div class="field full">
+              <label for="message">Message details <b>*</b></label>
+              <textarea id="message" name="message" rows="5" maxlength="1000" placeholder="Describe your question or issue (10–1000 characters)"></textarea>
+              <div class="field-foot"><small class="field-error" data-error="message"></small><small id="char-count">0 / 1000</small></div>
+            </div>
+          </div>
+          <div class="form-actions"><span>Validation is performed by the server.</span><button id="submit-button" type="submit">Submit message <span>→</span></button></div>
+          <div id="form-feedback" class="form-feedback" role="status" aria-live="polite" hidden></div>
+        </form>
+      </section>
+
+
+    </div>
+
+    <section class="concept-strip">
+      <div class="concept-title"><p class="overline">UNDER THE HOOD</p><h2>Core Node.js concepts</h2><p>Each required concept has a job in this application.</p></div>
+      <div class="concept"><span>01</span><strong>HTTP</strong><small>Handles GET and POST requests</small><code>http.createServer()</code></div>
+      <div class="concept"><span>02</span><strong>Custom module</strong><small>Checks the submitted fields</small><code>lib/validator.js</code></div>
+      <div class="concept"><span>03</span><strong>File system</strong><small>Saves accepted messages</small><code>fs.appendFileSync()</code></div>
+      <div class="concept"><span>04</span><strong>Events & streams</strong><small>Logs activity and streams files</small><code>EventEmitter · createReadStream</code></div>
+    </section>
+    <footer><span>Campus Desk <b>·</b> Practical 04</span><span>Demonstration only · No email is sent</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

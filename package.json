@@ -1,0 +1,14 @@
+{
+  "name": "signaldesk-node-validation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Core Node.js server-side validation demo for Web Technology Practical 4",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
